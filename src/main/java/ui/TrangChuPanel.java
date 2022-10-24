@@ -47,9 +47,6 @@ public class TrangChuPanel extends javax.swing.JPanel {
 		JLabel lbImg2 = new javax.swing.JLabel();
 		JPanel pnlB = new javax.swing.JPanel();
 		btnQLHD = new ColoredButton();
-		btnQLThuoc = new ColoredButton();
-		btnQLNCC = new ColoredButton();
-		btnQLKH = new ColoredButton();
 		btnTK = new ColoredButton();
 
 		setBackground(new java.awt.Color(255, 255, 255));
@@ -144,42 +141,10 @@ public class TrangChuPanel extends javax.swing.JPanel {
 		pnlB.add(btnQLHD);
 		pnlB.add(new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767)));
 
-		btnQLThuoc.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-		btnQLThuoc.setIcon(new javax.swing.ImageIcon("Images/medicine.png")); // NOI18N
-		btnQLThuoc.setText("Quản lý thuốc");
-		btnQLThuoc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		btnQLThuoc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-		btnQLThuoc.setBackground(new Color(0xE7E7E7));
-		btnQLThuoc.setForeground(Color.black);
-		btnQLThuoc.setBorderRadius(20);
-		pnlB.add(btnQLThuoc);
-		pnlB.add(new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767)));
-
-		btnQLNCC.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-		btnQLNCC.setIcon(new javax.swing.ImageIcon("Images/supplier.png")); // NOI18N
-		btnQLNCC.setText("Quản lý nhà cung cấp");
-		btnQLNCC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		btnQLNCC.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-		btnQLNCC.setForeground(Color.black);
-		btnQLNCC.setBackground(new Color(0xE7E7E7));
-		btnQLNCC.setBorderRadius(20);
-		pnlB.add(btnQLNCC);
-		pnlB.add(new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767)));
-
-		btnQLKH.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-		btnQLKH.setIcon(new javax.swing.ImageIcon("Images/customer.png")); // NOI18N
-		btnQLKH.setText("Quản lý khách hàng");
-		btnQLKH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		btnQLKH.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-		btnQLKH.setBackground(new Color(0xE7E7E7));
-		btnQLKH.setForeground(Color.black);
-		btnQLKH.setBorderRadius(20);
-		pnlB.add(btnQLKH);
-		pnlB.add(new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767)));
 
 		if(MainFrame.getNhanVien().getLoaiNhanVien() == 0) {
 			btnQLNV = new ColoredButton();
-			btnQLNV.setPreferredSize(btnQLNCC.getPreferredSize());
+
 			btnQLNV.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
 			btnQLNV.setIcon(new javax.swing.ImageIcon("Images/employee.png")); // NOI18N
 			btnQLNV.setText("Quản lý nhân viên");
@@ -203,20 +168,12 @@ public class TrangChuPanel extends javax.swing.JPanel {
 		pnlB.add(btnTK);
 		pnlB.add(new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767)));
 
-		btnQLHD.setPreferredSize(btnQLNCC.getPreferredSize());
-		btnQLThuoc.setPreferredSize(btnQLNCC.getPreferredSize());
-		btnQLKH.setPreferredSize(btnQLNCC.getPreferredSize());
-		btnTK.setPreferredSize(btnQLNCC.getPreferredSize());
-
 		add(pnlB, java.awt.BorderLayout.SOUTH);
 
 		addEvent();
 	}
 
 	private void addEvent() {
-		btnQLThuoc.addActionListener((e) -> {
-			mainFrame.changeCenter(mainFrame.getQuanLyThuocPanel());
-		});
 
 		btnQLHD.addActionListener((e) -> {
 			mainFrame.changeCenter(mainFrame.getQuanLyHoaDonPanel());
@@ -228,23 +185,8 @@ public class TrangChuPanel extends javax.swing.JPanel {
 			});
 		}
 
-		btnQLNCC.addActionListener((e) -> {
-			mainFrame.changeCenter(mainFrame.getQuanLyNhaCungCapPanel());
-		});
-
-		btnQLKH.addActionListener((e) -> {
-			mainFrame.changeCenter(mainFrame.getQuanLyKhachHangPanel());
-		});
-
-		btnTK.addActionListener((e) -> {
-			mainFrame.changeCenter(mainFrame.getThongKePanel());
-		});
-
 	}
 
-	private ColoredButton btnQLThuoc;
-	private ColoredButton btnQLNCC;
-	private ColoredButton btnQLKH;
 	private ColoredButton btnQLNV;
 	private ColoredButton btnTK;
 	private ColoredButton btnQLHD;

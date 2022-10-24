@@ -443,7 +443,7 @@ public class QuanLyHoaDonPanel extends JPanel {
 			
 			row += currentIndex;
 
-			new CapNhatHoaDonDialog(this).setHoaDon(hoaDons.get(row));
+//			new CapNhatHoaDonDialog(this).setHoaDon(hoaDons.get(row));
 		});
 
 		btnXoa.addActionListener(new ActionListener() {
@@ -472,13 +472,13 @@ public class QuanLyHoaDonPanel extends JPanel {
 			}
 		});
 
-		btnLapHoaDon.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new CapNhatHoaDonDialog(QuanLyHoaDonPanel.this).setVisible(true);
-			}
-		});
+//		btnLapHoaDon.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				new CapNhatHoaDonDialog(QuanLyHoaDonPanel.this).setVisible(true);
+//			}
+//		});
 
 		btnTimKiem.addActionListener(new ActionListener() {
 

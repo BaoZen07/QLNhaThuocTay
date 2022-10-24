@@ -46,13 +46,9 @@ public class MainFrame extends JFrame {
 	private JPanel pnlCenterOfCenter;
 	private QuanLyHoaDonPanel quanLyHoaDonPanel;
 	private QuanLyNhanVienPanel quanLyNhanVienPanel;
-	private QuanLyKhachHangPanel quanLyKhachHangPanel;
-	private QuanLyThuocPanel quanLyThuocPanel;
-	private QuanLyNhaCungCapPanel quanLyNhaCungCapPanel;
 
 	private DangNhapFrame dangNhapFrame;
 	private ColoredButton btnDangXuat;
-	private ThongKePanel thongKePanel;
 	private AboutDialog aboutDialog;
 	private TrangChuPanel trangChuPanel;
 	private ColoredButton btnHelp;
@@ -145,8 +141,6 @@ public class MainFrame extends JFrame {
 		trangChuPanel.setPreferredSize(new Dimension(700, 600));
 		addShortCutKey(getAllComponents(trangChuPanel));
 
-		quanLyThuocPanel = new QuanLyThuocPanel(this);
-		addShortCutKey(getAllComponents(quanLyThuocPanel));
 
 		quanLyHoaDonPanel = new QuanLyHoaDonPanel(this);
 		addShortCutKey(getAllComponents(quanLyHoaDonPanel));
@@ -154,23 +148,12 @@ public class MainFrame extends JFrame {
 		quanLyNhanVienPanel = new QuanLyNhanVienPanel(this);
 		addShortCutKey(getAllComponents(quanLyNhanVienPanel));
 
-		quanLyKhachHangPanel = new QuanLyKhachHangPanel(this);
-		addShortCutKey(getAllComponents(quanLyKhachHangPanel));
-
-		quanLyNhaCungCapPanel = new QuanLyNhaCungCapPanel(this);
-		addShortCutKey(getAllComponents(quanLyNhaCungCapPanel));
-
-		thongKePanel = new ThongKePanel(this);
-		addShortCutKey(getAllComponents(thongKePanel));
 
 		changeCenter(trangChuPanel);
 
-		quanLyKhachHangPanel.setPreferredSize(trangChuPanel.getPreferredSize());
 		quanLyHoaDonPanel.setPreferredSize(trangChuPanel.getPreferredSize());
 		quanLyNhanVienPanel.setPreferredSize(trangChuPanel.getPreferredSize());
-		quanLyThuocPanel.setPreferredSize(trangChuPanel.getPreferredSize());
-		quanLyNhaCungCapPanel.setPreferredSize(trangChuPanel.getPreferredSize());
-		thongKePanel.setPreferredSize(trangChuPanel.getPreferredSize());
+
 	}
 
 	private void addShortCutKey(List<Component> components) {
@@ -186,16 +169,10 @@ public class MainFrame extends JFrame {
 							changeCenter(trangChuPanel);
 						else if(e.getKeyCode() == KeyEvent.VK_O)
 							changeCenter(quanLyHoaDonPanel);
-						else if(e.getKeyCode() == KeyEvent.VK_C)
-							changeCenter(quanLyKhachHangPanel);
+
 						else if(e.getKeyCode() == KeyEvent.VK_E && pnlMenuQLNV != null)
 							changeCenter(quanLyNhanVienPanel);
-						else if(e.getKeyCode() == KeyEvent.VK_S)
-							changeCenter(quanLyNhaCungCapPanel);
-						else if(e.getKeyCode() == KeyEvent.VK_M)
-							changeCenter(quanLyThuocPanel);
-						else if(e.getKeyCode() == KeyEvent.VK_R)
-							changeCenter(thongKePanel);
+
 
 					} else if(e.getKeyCode() == KeyEvent.VK_ALT)
 						isAltPressed = true;
@@ -234,21 +211,6 @@ public class MainFrame extends JFrame {
 		return quanLyNhanVienPanel;
 	}
 
-	public QuanLyKhachHangPanel getQuanLyKhachHangPanel() {
-		return quanLyKhachHangPanel;
-	}
-
-	public QuanLyThuocPanel getQuanLyThuocPanel() {
-		return quanLyThuocPanel;
-	}
-
-	public QuanLyNhaCungCapPanel getQuanLyNhaCungCapPanel() {
-		return quanLyNhaCungCapPanel;
-	}
-
-	public ThongKePanel getThongKePanel() {
-		return thongKePanel;
-	}
 
 	public TrangChuPanel getTrangChuPanel() {
 		return trangChuPanel;
@@ -317,13 +279,6 @@ public class MainFrame extends JFrame {
 				changeCenter(quanLyHoaDonPanel);
 			}
 		});
-		pnlMenuQLKH = addMenuItem(pnlMenu, "Quản lý khách hàng", "Images/customer.png");
-		pnlMenuQLKH.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				changeCenter(quanLyKhachHangPanel);
-			}
-		});
 
 		if(nhanVien.getLoaiNhanVien() == 0) {
 			pnlMenuQLNV = addMenuItem(pnlMenu, "Quản lý nhân viên", "Images/employee.png");
@@ -334,28 +289,7 @@ public class MainFrame extends JFrame {
 				}
 			});
 		}
-		
-		pnlMenuQLThuoc = addMenuItem(pnlMenu, "Quản lý thuốc", "Images/medicine.png");
-		pnlMenuQLThuoc.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				changeCenter(quanLyThuocPanel);
-			}
-		});
-		pnlMenuQLNCC = addMenuItem(pnlMenu, "Quản lý nhà cung cấp", "Images/supplier.png");
-		pnlMenuQLNCC.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				changeCenter(quanLyNhaCungCapPanel);
-			}
-		});
-		pnlMenuQLTK = addMenuItem(pnlMenu, "Thống kê", "Images/statistics_64px.png");
-		pnlMenuQLTK.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				changeCenter(thongKePanel);
-			}
-		});
+
 
 	}
 
@@ -541,25 +475,10 @@ public class MainFrame extends JFrame {
 			selectedPanel = pnlMenuQLHD;
 			selectedPanel.setBackground(new Color(0xFFFFFF));
 			quanLyHoaDonPanel.getDefaultFocusComponent().requestFocus();
-		} else if(newPanel.equals(quanLyNhaCungCapPanel)) {
-			selectedPanel = pnlMenuQLNCC;
-			selectedPanel.setBackground(new Color(0xFFFFFF));
-			quanLyNhaCungCapPanel.getDefaultFocusComponent().requestFocus();
-		} else if(newPanel.equals(quanLyKhachHangPanel)) {
-			selectedPanel = pnlMenuQLKH;
-			selectedPanel.setBackground(new Color(0xFFFFFF));
-			quanLyKhachHangPanel.getDefaultFocusComponent().requestFocus();
 		} else if(newPanel.equals(quanLyNhanVienPanel)) {
 			selectedPanel = pnlMenuQLNV;
 			selectedPanel.setBackground(new Color(0xFFFFFF));
 			quanLyNhanVienPanel.getDefaultFocusComponent().requestFocus();
-		} else if(newPanel.equals(quanLyThuocPanel)) {
-			selectedPanel = pnlMenuQLThuoc;
-			selectedPanel.setBackground(new Color(0xFFFFFF));
-			quanLyThuocPanel.getDefaultFocusComponent().requestFocus();
-		} else if(newPanel.equals(thongKePanel)) {
-			selectedPanel = pnlMenuQLTK;
-			selectedPanel.setBackground(new Color(0xFFFFFF));
 		} else if(newPanel.equals(trangChuPanel)) {
 			selectedPanel = pnlMenuTC;
 			selectedPanel.setBackground(new Color(0xFFFFFF));
